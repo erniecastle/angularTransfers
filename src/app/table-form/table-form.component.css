@@ -1,0 +1,54 @@
+@font-face {
+  font-family: "Kanit-Light"; /*a name to be used later*/
+  src: url("/src/Fonts/Kanit-ExtraLight.ttf"); /*URL to font*/
+
+  font-family: "Kanit-Bold"; /*a name to be used later*/
+  src: url("/src/Fonts/Kanit-Bold.ttf"); /*URL to font*/
+}
+
+.container {
+  margin-top: 40px;
+}
+
+.table {
+  background: transparent;
+}
+
+.tableUpper {
+  background-color: #0c8397;
+  border: 5px solid #0c8397;
+}
+
+.tableForm {
+  background-color: white;
+}
+
+.textUpperTable {
+  margin-left: 37%;
+  color: white;
+}
+
+label {
+  font-family: "Kanit-Light";
+}
+
+input[type="text"] {
+  width: 90%;
+  margin: 8px 0;
+  display: block;
+  border: none;
+  border-bottom: 3px solid gainsboro;
+  padding: 6px 10px;
+  outline: none;
+  box-sizing: border-box;
+  margin-left: 10px;
+}
+
+.sortlabel {
+  font-weight: bold;
+  width: 50px;
+  color: black;
+  margin-top: 8px;
+  margin-left: 7px;
+}
+

@@ -1,0 +1,81 @@
+<div class="container">
+  <div class="table">
+    <div class="tableUpper">
+      <img class="top-card" src="../../assets/icons/briefcase.png" />
+      <label class="textUpperTable">Recent transactions</label>
+    </div>
+
+    <div class="tableForm">
+      <div class="ui mini menu">
+        <div class="ui icon input" style="width: 60%">
+          <input
+            type="text"
+            #filterCompany
+            placeholder="Search by typing"
+            (keyup)="applyFilter($event.target.value)"
+          />
+          <i
+            class="circular search link close icon"
+            (click)="clearFilter()"
+          ></i>
+        </div>
+        <a class="sortlabel">Sort by</a>
+
+        <div class="menu">
+          <div class="ui dropdown item">
+            Date
+            <input
+              class="form-control"
+              placeholder="yyyy-mm-dd"
+              name="dp"
+              [(ngModel)]="model"
+              (ngModelChange)="changeDate($event)"
+              ngbDatepicker
+              #d="ngbDatepicker"
+              style="visibility: hidden"
+            />
+            <i
+              class="dropdown icon outline-secondary calendar"
+              (click)="d.toggle()"
+            ></i>
+          </div>
+        </div>
+
+        <a class="item" (click)="applyFilterBenef()">Beneficiary</a>
+
+        <a class="item" (click)="applyFilterAmount()">Amount</a>
+      </div>
+
+      <table class="ui celled table">
+        <tbody>
+          <tr *ngFor="let item of lisData">
+            <td [ngStyle]="{ 'background-color': item.categoryCode }"></td>
+            <td>
+              {{ item.dates.valueDate | date: "MMM yy" }}
+            </td>
+
+            <td>
+              <h4 class="ui image header">
+                <img
+                  [src]="getIcon(item.merchant.name)"
+                  class="ui mini rounded image"
+                />
+              </h4>
+            </td>
+
+            <td>
+              <div class="content">
+                {{ item.merchant.name }}
+                <div class="sub header">{{ item.transaction.type }}</div>
+              </div>
+            </td>
+
+            <td class="right aligned">
+              {{ item.transaction.amountCurrency.amount | number : '1.1' }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

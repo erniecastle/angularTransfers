@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="card">
+    <div class="cardUpper">
+      <img class="top-card" src="../../assets/icons/arrows.png" />
+      <label class="textUpperCard">Make a transfer</label>
+    </div>
+    <div class="cardForm">
+      <div class="cardForm-form">
+        <form [formGroup]="dataform" class="">
+          <div class="field">
+            <label>FROM ACCOUNT</label>
+            <input
+              class="inp"
+              type="text"
+              name="fromaccount"
+              formControlName="fromaccount"
+              placeholder="Free checking(4692) - $5824.26"
+              disabled="disabled"
+            />
+          </div>
+          <div class="field">
+            <label>TO ACCOUNT</label>
+            <select name="toaccount" formControlName="toaccount" >
+              <option [value]="item.merchant.name" *ngFor="let item of lisDataCompanies">{{item.merchant.name}}</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>AMOUNT</label>
+            <input
+              type="text"
+              name="amount"
+              formControlName="amount"
+              placeholder="$0.00"
+              (keypress)="validateNumber($event)"
+            />
+          </div>
+          <button class="btnSubmit" type="submit" (click)="addTransfer()">
+            Submit
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
